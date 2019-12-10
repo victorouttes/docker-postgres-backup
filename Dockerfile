@@ -1,5 +1,5 @@
-FROM alpine:3.5
-MAINTAINER Fabrizio Steiner <stffabi@users.noreply.github.com>
+FROM postgres:alpine
+MAINTAINER Victor Outtes <victor.outtes@users.noreply.github.com>
 
 RUN apk add --no-cache postgresql tzdata su-exec openssl && \
     mkdir /backup
@@ -18,7 +18,7 @@ ENV UID=65534 \
     PG_PASS="" \
     EXTRA_OPTS="--inserts"
 
-ADD run.sh /run.sh
+ADD docker/backup/run.sh /run.sh
 
 VOLUME ["/backup"]
 

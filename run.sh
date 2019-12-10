@@ -47,7 +47,7 @@ cat <<EOF >> /restore.sh
 set -e
 
 echo "=> Restore database from \$1"
-if cat \$1 | gzip -d | ${PG_PASS} pg_restore -h ${PG_HOST} -p ${PG_PORT} -U ${PG_USER} -d ${PG_DB} ;then
+if cat \$1 | gzip -d | ${PG_PASS} psql -h ${PG_HOST} -p ${PG_PORT} -U ${PG_USER} -d ${PG_DB} ;then
     echo "   Restore succeeded"
 else
     echo "   Restore failed"
