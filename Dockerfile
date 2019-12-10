@@ -18,7 +18,7 @@ ENV UID=65534 \
     PG_PASS="" \
     EXTRA_OPTS="--inserts"
 
-ADD docker/backup/run.sh /run.sh
+ADD run.sh /run.sh
 
 VOLUME ["/backup"]
 
